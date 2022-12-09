@@ -11,8 +11,9 @@ You are encouraged to use the provided naming convention for ease of review.
 
 // INSERT YOUR CODE HERE
 
-
-
+var duration = 0;
+var modelName = "Model XYZ";
+var total = [];
 
 
 /****************** helper function ******************/
@@ -26,10 +27,19 @@ You are encouraged to use the provided naming convention for ease of review.
 */
 
 // INSERT YOUR CODE HERE
-
-
-
-
+function recalculate() {
+    let calculatedCost = document.getElementById("calculated-cost");
+    if (modelName == "Model XYZ")
+    {
+        total = duration * 100;
+        calculatedCost.textContent = total;
+    }
+    else
+    {
+        total = duration * 213;
+        calculatedCost.textContent = total;
+    }
+}
 
 
 /****************** model button logic ******************/
@@ -46,8 +56,23 @@ You are encouraged to use the provided naming convention for ease of review.
 
 // INSERT YOUR CODE HERE
 
+var modelButton = document.getElementById("model-button");
 
+function Switch_Model(){
+    let modelButton = document.getElementById("model-text");
+    if (modelName == "Model XYZ")
+    {
+        modelName = "Model CPRG";
+        modelButton.textContent = "Model CPRG";
+    }
+    else
+    {
+        modelName = "Model XYZ";
+        modelButton.textContent = "Model XYZ";
+    }
+}
 
+modelButton.addEventListener("click", Switch_Model);
 
 
 
@@ -65,5 +90,14 @@ You are encouraged to use the provided naming convention for ease of review.
 
 // INSERT YOUR CODE HERE
 
+var durationButton = document.getElementById("duration-button");
 
+function durationButtonLogic() {
+    let durationText = document.getElementById("duration-text");
+    duration = parseFloat(prompt("Please enter the duration (days)"));
+    durationText.textContent = duration;
+    recalculate();
+}
+
+durationButton.addEventListener("click", durationButtonLogic );
 
